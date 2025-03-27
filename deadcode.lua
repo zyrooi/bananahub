@@ -1,6 +1,6 @@
 repeat task.wait(5) until game:IsLoaded();
 getgenv().Image = "rbxthumb://type=Asset&id=115223276329152&w=420&h=420"; -- put a asset id in here to make it work
-getgenv().ToggleUI = "E" -- This where you can Toggle the Fluent ui library
+getgenv().ToggleUI = "left control" -- This where you can Toggle the Fluent ui library
 
 task.spawn(function()
     if not getgenv().LoadedMobileUI == true then getgenv().LoadedMobileUI = true
