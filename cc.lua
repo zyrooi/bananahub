@@ -169,7 +169,6 @@ end)
 Tab1:Toggle("Comlect Item",false,function(value)
 
     end)
-Tab1:Line()
 Tab1:Seperator("Misc")
 Tab1:Button("Noclip",function()
    local noclip = true
@@ -183,6 +182,7 @@ game:GetService("RunService").Stepped:Connect(function()
     end
 end) 
 end)
+Tab1:Line()
 Tab2:Seperator("Config Antiban")
 
 Tab2:Textbox("Enter API Key","",true,function(value)
