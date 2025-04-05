@@ -136,29 +136,39 @@ Tab1:Seperator("Teleport - Coming Soon")
 Tab1:Button("Teleport 80km",function()
     local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
 local newPosition = Vector3.new(423.99859619140625, 31.4669189453125, -49041) -- Tọa độ đích
 
 if character then
-    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-    -- Dịch chuyển ngay lập tức
+    -- Đảm bảo không có kẹt teleport
+    local oldCFrame = humanoidRootPart.CFrame
+    
+    -- Di chuyển nhân vật đến vị trí mới (teleport trực tiếp)
     humanoidRootPart.CFrame = CFrame.new(newPosition)
-end   
+
+    -- Thực hiện một lần nữa để đảm bảo vị trí không bị phản lại
+    game:GetService("TweenService"):Create(humanoidRootPart, TweenInfo.new(0), {CFrame = humanoidRootPart.CFrame}):Play()
+        end
 end)
 
 Tab1:Button("Teleport 10km",function()
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-local newPosition = Vector3.new(1358.5087890625, 369.697509765625, -49.35203552246094) -- Tọa độ đích
+local newPosition = Vector3.new(5.372469902038574, 4.519417762756348, 29821.07421875) -- Tọa độ đích
 
 if character then
-    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-    -- Dịch chuyển ngay lập tức
+    -- Đảm bảo không có kẹt teleport
+    local oldCFrame = humanoidRootPart.CFrame
+    
+    -- Di chuyển nhân vật đến vị trí mới (teleport trực tiếp)
     humanoidRootPart.CFrame = CFrame.new(newPosition)
-end   
+
+    -- Thực hiện một lần nữa để đảm bảo vị trí không bị phản lại
+    game:GetService("TweenService"):Create(humanoidRootPart, TweenInfo.new(0), {CFrame = humanoidRootPart.CFrame}):Play()
+        end
 end)
 
 Tab1:Seperator("Comlect")
