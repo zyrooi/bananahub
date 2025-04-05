@@ -170,7 +170,19 @@ Tab1:Toggle("Comlect Item",false,function(value)
 
     end)
 Tab1:Line()
-
+Tab1:Seperator("Misc")
+Tab1:Button("Noclip",function()
+   local noclip = true
+game:GetService("RunService").Stepped:Connect(function()
+    if noclip and game.Players.LocalPlayer.Character then
+        for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if part:IsA("BasePart") and part.CanCollide == true then
+                part.CanCollide = false
+            end
+        end
+    end
+end) 
+end)
 Tab2:Seperator("Config Antiban")
 
 Tab2:Textbox("Enter API Key","",true,function(value)
